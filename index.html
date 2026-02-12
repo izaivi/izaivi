@@ -466,7 +466,7 @@
         <div class="project-icon">🎮</div>
         <h2 class="project-title">GamerMom</h2>
         <p class="project-description">
-          En GamerMom me sumerjo en el mundo de Fortnite, creando mapas propios, jugando en comunidad y compartiendo ese lado ludico que nunca quiero perder.
+          En GamerMom me sumerjo en el mundo de Fortnite, creando mapas propios, jugando en comunidad y compartiendo ese lado lúdico que nunca quiero perder. Trabajo con un equipo pequeño pero lleno de corazón: un colaborador creativo que apoya en el diseño de mapas y mods increíbles que sostienen la comunidad en Discord.
         </p>
         <div class="mini-row">
           <img class="mini-avatar" src="images/izaivigamermombanner.jpeg" alt="GamerMom" />
@@ -556,6 +556,24 @@
         <a href="https://www.instagram.com/shashin.vivi" target="_blank" rel="noopener">Instagram</a>
       </div>
     </footer>
+
+    <script>
+      /* nav-close */
+      (function() {
+        const drops = Array.from(document.querySelectorAll('details.navdrop'));
+        function closeAll(except) {
+          drops.forEach(d => { if (d !== except) d.removeAttribute('open'); });
+        }
+        drops.forEach(d => {
+          d.addEventListener('toggle', () => { if (d.open) closeAll(d); });
+        });
+        document.addEventListener('click', (e) => {
+          const clickedInside = drops.some(d => d.contains(e.target));
+          if (!clickedInside) closeAll();
+        });
+        window.addEventListener('scroll', () => closeAll(), { passive: true });
+      })();
+    </script>
   </div>
 </body>
 </html>
