@@ -177,11 +177,7 @@
 
     .btn-ghost:hover { background: rgba(255,255,255,0.20); transform: translateY(-2px); }
 
-    .hero-art {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+    .hero-art { display:flex; align-items:center; justify-content:center; }
 
     .hero-gif {
       width: 240px;
@@ -270,14 +266,14 @@
 
     .project-description { color:#555; line-height: 1.65; font-size: 0.98rem; }
 
-    .mini-row { display:flex; gap: 12px; align-items:center; margin-top: 12px; }
+    .mini-row { display:flex; gap: 12px; align-items:center; margin-top: 12px; flex-wrap: wrap; justify-content:center; }
     .mini-avatar {
       width: 54px; height: 54px; border-radius: 50%; object-fit: cover;
       border: 2px solid rgba(0,0,0,0.08);
       box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     }
 
-    .mini-text { font-size: 0.92rem; color:#555; line-height: 1.35; }
+    .mini-text { font-size: 0.92rem; color:#555; line-height: 1.35; text-align:center; }
 
     .links-grid {
       display:grid;
@@ -366,8 +362,6 @@
     @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
     @keyframes fadeInDown { from { opacity:0; transform: translateY(-30px);} to { opacity:1; transform: translateY(0);} }
     @keyframes fadeInUp { from { opacity:0; transform: translateY(26px);} to { opacity:1; transform: translateY(0);} }
-    @keyframes fadeInLeft { from { opacity:0; transform: translateX(-26px);} to { opacity:1; transform: translateX(0);} }
-    @keyframes fadeInRight { from { opacity:0; transform: translateX(26px);} to { opacity:1; transform: translateX(0);} }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
     @keyframes float { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-20px);} }
 
@@ -419,8 +413,8 @@
             <summary>Libros</summary>
             <div class="drop">
               <a href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Shashin Vivi <span class="hint">Canal</span></a>
-              <a href="https://www.youtube.com/@ShashinVivi/community" target="_blank" rel="noopener">Publicaciones <span class="hint">Comunidad</span></a>
-              <a href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">Regálame una infusión <span class="hint">Apoyo</span></a>
+              <a href="https://www.youtube.com/@ShashinVivi/posts" target="_blank" rel="noopener">Publicaciones <span class="hint">Posts</span></a>
+              <a href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">Regalame una infusion <span class="hint">Apoyo</span></a>
             </div>
           </details>
 
@@ -438,7 +432,7 @@
           <h1 class="hero-title">izaivi</h1>
           <p class="subtitle">Creadora de mapas, historias y universos compartidos</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Unete al Discord</a>
+            <a class="btn btn-primary" href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Fortnite / Juegos</a>
             <a class="btn btn-ghost" href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Ver Shashin Vivi</a>
           </div>
         </div>
@@ -474,6 +468,10 @@
         <p class="project-description">
           En GamerMom me sumerjo en el mundo de Fortnite, creando mapas propios, jugando en comunidad y compartiendo ese lado ludico que nunca quiero perder.
         </p>
+        <div class="mini-row">
+          <img class="mini-avatar" src="images/izaivigamermombanner.jpeg" alt="GamerMom" />
+          <div class="mini-text">Fortnite y comunidad</div>
+        </div>
       </article>
 
       <article class="project-card">
@@ -484,9 +482,8 @@
         </p>
         <div class="mini-row">
           <img class="mini-avatar" src="images/Aeva.png" alt="Aeva" />
-          <div class="mini-text">
-            Con la ayuda de <strong>Aeva</strong>, nuestro avatar para meditaciones y narraciones.
-          </div>
+          <img class="mini-avatar" src="images/logo_shashinlibros.png" alt="Shashin Vivi" />
+          <div class="mini-text">Con la ayuda de <strong>Aeva</strong>, nuestro avatar para meditaciones y narraciones.</div>
         </div>
       </article>
 
@@ -496,6 +493,10 @@
         <p class="project-description">
           Bienestar, naturopatia, ayuno consciente, belleza natural y movimiento suave. Un espacio para volver al cuerpo y a la calma.
         </p>
+        <div class="mini-row">
+          <img class="mini-avatar" src="images/amanatura.png" alt="AmaNatura" />
+          <div class="mini-text">Bienestar y calma</div>
+        </div>
       </article>
     </section>
 
@@ -524,9 +525,9 @@
         <span class="link-left"><span class="link-icon">📚</span><span class="link-title">YouTube Libros</span></span>
         <span class="hint">Shashin Vivi</span>
       </a>
-      <a href="https://www.youtube.com/@ShashinVivi/community" class="project-link" target="_blank" rel="noopener">
+      <a href="https://www.youtube.com/@ShashinVivi/posts" class="project-link" target="_blank" rel="noopener">
         <span class="link-left"><span class="link-icon">📝</span><span class="link-title">Publicaciones</span></span>
-        <span class="hint">Community</span>
+        <span class="hint">Posts</span>
       </a>
       <a href="https://chatgpt.com/g/g-682b99cbf7608191b12d678d807118b7-amanatura" class="project-link" target="_blank" rel="noopener">
         <span class="link-left"><span class="link-icon">🌙</span><span class="link-title">AmaNatura</span></span>
@@ -550,7 +551,7 @@
         <a href="https://www.twitch.tv/izaivi" target="_blank" rel="noopener">Twitch</a>
         <a href="https://www.fortnite.com/@izaivi?lang=es-MX" target="_blank" rel="noopener">Epic</a>
         <a href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Shashin Vivi</a>
-        <a href="https://www.youtube.com/@ShashinVivi/community" target="_blank" rel="noopener">Publicaciones</a>
+        <a href="https://www.youtube.com/@ShashinVivi/posts" target="_blank" rel="noopener">Publicaciones</a>
         <a href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">Infusion</a>
         <a href="https://www.instagram.com/shashin.vivi" target="_blank" rel="noopener">Instagram</a>
       </div>
