@@ -5,575 +5,1032 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>izaivi - Creadora de Universos</title>
-  <meta name="description" content="izaivi: creadora de mapas, historias y universos compartidos. Fortnite, libros (Shashin Vivi) y bienestar (AmaNatura)." />
+  <meta name="description" content="izaivi: creadora de mapas en Fortnite, historias y libros en Shashin Vivi, y bienestar en AmaNatura." />
   <link rel="canonical" href="https://www.izaivigamermom.com/" />
 
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="izaivi" />
   <meta property="og:title" content="izaivi - Creadora de Universos" />
   <meta property="og:description" content="Mapas de Fortnite, historias y libros en Shashin Vivi, y bienestar en AmaNatura." />
   <meta property="og:url" content="https://www.izaivigamermom.com/" />
   <meta property="og:image" content="https://www.izaivigamermom.com/images/og.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="izaivi - Creadora de Universos" />
   <meta name="twitter:description" content="Fortnite, libros (Shashin Vivi) y bienestar (AmaNatura)." />
   <meta name="twitter:image" content="https://www.izaivigamermom.com/images/og.png" />
-
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701188258101635"
-    crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701188258101635" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --ink: #0d0d0f;
+      --paper: #f5f0ea;
+      --cream: #ede8e1;
+      --gold: #c8a96e;
+      --gold-light: #e8d5a8;
+      --rust: #a8522a;
+      --forest: #2d4a35;
+      --violet: #3d2b5e;
+      --mist: #8a9ba8;
+      --text: #1a1a1f;
+      --text-light: #6b6b75;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      color: #333;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--ink);
+      color: var(--paper);
       overflow-x: hidden;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-    /* Top nav */
-    .topbar {
-      position: sticky;
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
       top: 0;
-      z-index: 10;
-      margin: 0 -20px 24px;
-      padding: 14px 20px;
-      background: rgba(255,255,255,0.12);
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(12px);
-    }
-
-    .navwrap { display:flex; align-items:center; justify-content:space-between; gap: 16px; }
-    .brand { display:flex; align-items:center; gap: 10px; text-decoration:none; color: white; font-weight: 700; letter-spacing: 0.2px; }
-    .brand-badge {
-      width: 36px; height: 36px; border-radius: 12px;
-      background: rgba(255,255,255,0.15);
-      display:flex; align-items:center; justify-content:center;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .nav { display:flex; align-items:center; gap: 10px; flex-wrap: wrap; justify-content:flex-end; }
-
-    details.navdrop { position: relative; }
-    details.navdrop > summary {
-      list-style: none;
-      cursor: pointer;
-      user-select: none;
-      padding: 8px 12px;
-      border-radius: 12px;
-      color: white;
-      font-weight: 600;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.16);
-    }
-    details.navdrop > summary::-webkit-details-marker { display:none; }
-
-    .drop {
-      position: absolute;
+      left: 0;
       right: 0;
-      top: calc(100% + 8px);
-      min-width: 240px;
-      padding: 10px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.95);
-      border: 1px solid rgba(255,255,255,0.35);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      mix-blend-mode: normal;
     }
 
-    .drop a {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      text-decoration:none;
-      color: #333;
-      font-weight: 600;
+    nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(13,13,15,0.95) 0%, transparent 100%);
+      pointer-events: none;
     }
 
-    .drop a:hover { background: rgba(102,126,234,0.10); }
-    .hint { font-weight: 500; color:#666; font-size: 0.85rem; }
-
-    .navlink {
-      padding: 8px 12px;
-      border-radius: 12px;
-      color: white;
-      text-decoration:none;
-      font-weight: 600;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.16);
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      position: relative;
     }
-    .navlink:hover { background: rgba(255,255,255,0.16); }
 
-    header { text-align: center; margin-bottom: 26px; animation: fadeInDown 1s ease-out; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      position: relative;
+    }
 
+    .nav-links a {
+      color: rgba(245,240,234,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-links .nav-cta {
+      color: var(--gold);
+      border: 1px solid rgba(200,169,110,0.4);
+      padding: 8px 18px;
+      border-radius: 2px;
+    }
+
+    .nav-links .nav-cta:hover {
+      background: rgba(200,169,110,0.1);
+      color: var(--gold-light);
+    }
+
+    /* ─── HERO ─── */
     .hero {
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      align-items:center;
-      margin-bottom: 18px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/og.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      filter: grayscale(30%);
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px 56px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 1s ease-out 0.2s forwards;
     }
 
     .hero-title {
-      font-size: 3.5rem;
-      font-weight: bold;
-      background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradientShift 3s ease-in-out infinite;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(5rem, 9vw, 10rem);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      color: var(--paper);
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 1s ease-out 0.4s forwards;
     }
 
-    .subtitle {
-      font-size: 1.25rem;
-      color: white;
-      margin-bottom: 14px;
-      opacity: 0.95;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
     }
 
-    .hero-cta { display:flex; gap: 12px; justify-content:center; flex-wrap: wrap; }
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(245,240,234,0.65);
+      max-width: 420px;
+      margin-bottom: 44px;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1s ease-out 0.6s forwards;
+    }
 
-    .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1s ease-out 0.8s forwards;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration:none;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      border: 1px solid rgba(255,255,255,0.25);
-      transition: all 0.2s ease;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: 1px solid var(--gold);
     }
 
-    .btn-primary {
-      background: rgba(255,255,255,0.95);
-      color: #2a2a2a;
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
     }
 
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.18); }
-
-    .btn-ghost {
-      background: rgba(255,255,255,0.14);
-      color: white;
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--paper);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,240,234,0.25);
+      transition: all 0.3s;
     }
 
-    .btn-ghost:hover { background: rgba(255,255,255,0.20); transform: translateY(-2px); }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
 
-    .hero-art { display:flex; align-items:center; justify-content:center; }
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 56px 80px;
+    }
+
+    .hero-gif-wrap {
+      position: relative;
+    }
+
+    .hero-gif-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--gold) 0%, transparent 60%);
+      opacity: 0.4;
+      border-radius: 50%;
+    }
 
     .hero-gif {
-      width: 240px;
-      height: 240px;
-      object-fit: contain;
-      filter: drop-shadow(0 18px 26px rgba(0,0,0,0.25));
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      filter: drop-shadow(0 0 60px rgba(200,169,110,0.3));
+      animation: floatGif 6s ease-in-out infinite;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.10);
-      border: 1px solid rgba(255,255,255,0.2);
+    .hero-divider {
+      position: absolute;
+      left: 50%;
+      top: 15%;
+      bottom: 15%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,110,0.3) 30%, rgba(200,169,110,0.3) 70%, transparent);
     }
 
-    .avatar-section {
-      display:flex;
-      align-items:center;
-      gap: 28px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-      animation: fadeInUp 1s ease-out 0.35s both;
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 56px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(245,240,234,0.4);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s ease-out 1.2s forwards;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: rgba(200,169,110,0.4);
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      background: var(--paper);
+      color: var(--text);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+
+    .about-left {
+      padding: 100px 72px;
+      border-right: 1px solid rgba(26,26,31,0.1);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 32px;
+      color: var(--text);
+    }
+
+    .about-heading em {
+      font-style: italic;
+      color: var(--rust);
+    }
+
+    .about-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-light);
+      font-weight: 300;
+    }
+
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 72px;
+      background: var(--cream);
+    }
+
+    .avatar-ring {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin-bottom: 40px;
+    }
+
+    .avatar-ring::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(200,169,110,0.5);
+      border-radius: 50%;
+    }
+
+    .avatar-ring::after {
+      content: '';
+      position: absolute;
+      inset: -16px;
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 50%;
     }
 
     .avatar-img {
-      width: 190px;
-      height: 190px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid rgba(255,255,255,0.8);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      flex-shrink: 0;
     }
 
-    .avatar-content { flex: 1; min-width: 280px; }
-
-    .intro-text {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: #444;
-      text-align: left;
-    }
-
-    .closing-card { margin-top: 18px; text-align:center; animation: fadeIn 1s ease-out 0.55s both; }
-
-    .closing-text {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #444;
+    .quote-block {
+      font-family: 'Playfair Display', serif;
       font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      text-align: center;
+      max-width: 340px;
     }
 
-    .projects-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
-      margin-top: 26px;
+    .quote-block span {
+      display: block;
+      width: 30px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto 0;
     }
 
-    .project-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.10);
-      border: 1px solid rgba(255,255,255,0.22);
-      transition: all 0.25s ease;
-      position: relative;
-      overflow:hidden;
+    /* ─── PROJECTS ─── */
+    .projects {
+      background: var(--ink);
     }
 
-    .project-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.14); }
-
-    .project-card::before {
-      content:'';
-      position:absolute;
-      top:0; left:0; right:0;
-      height: 4px;
-      background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
-      border-radius: 20px 20px 0 0;
+    .projects-header {
+      padding: 100px 72px 60px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      border-bottom: 1px solid rgba(245,240,234,0.08);
     }
 
-    .project-icon { font-size: 2.6rem; margin: 8px 0 10px; text-align:center; }
-    .project-title { font-size: 1.6rem; font-weight: 900; margin: 6px 0 14px; text-align:center; }
-
-    .project-description { color:#555; line-height: 1.65; font-size: 0.98rem; }
-
-    .mini-row { display:flex; gap: 12px; align-items:center; margin-top: 12px; flex-wrap: wrap; justify-content:center; }
-    .mini-avatar {
-      width: 54px; height: 54px; border-radius: 50%; object-fit: cover;
-      border: 2px solid rgba(0,0,0,0.08);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    .projects-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--paper);
     }
 
-    .mini-text { font-size: 0.92rem; color:#555; line-height: 1.35; text-align:center; }
-
-    .links-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .project-link {
-      background: rgba(255,255,255,0.90);
-      border-radius: 15px;
-      padding: 18px 18px;
-      text-decoration:none;
-      color: #333;
-      text-align: left;
-      transition: all 0.25s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.10);
-      border: 1px solid rgba(255,255,255,0.30);
-      position: relative;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-    }
-
-    .project-link:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); background: rgba(255,255,255,0.95); }
-
-    .project-link::before {
-      content:'';
-      position:absolute;
-      top:0; left:0; right:0;
-      height: 3px;
-      background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-    }
-
-    .link-left { display:flex; align-items:center; gap: 12px; }
-    .link-icon { font-size: 1.9rem; }
-    .link-title { font-weight: 900; }
-
-    .support-section {
-      background: linear-gradient(135deg, #e5fbe3, #c8f7c5);
-      border-radius: 20px;
-      padding: 34px;
-      margin-top: 28px;
-      text-align:center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.10);
-      animation: fadeIn 1s ease-out 0.8s both;
-    }
-
-    .support-img { width: 90px; height: 90px; border-radius: 50%; margin-bottom: 14px; object-fit: cover; }
-
-    .support-link {
-      display:inline-block;
-      background: #2b7a42;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration:none;
-      font-weight: 900;
-      transition: all 0.25s ease;
-      margin-top: 12px;
-    }
-
-    .support-link:hover { background: #1f5a31; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(43,122,66,0.30); }
-
-    footer {
-      margin-top: 26px;
-      padding: 22px 0 30px;
-      color: rgba(255,255,255,0.90);
-      text-align:center;
+    .projects-sub {
+      max-width: 380px;
       font-size: 0.95rem;
-      opacity: 0.95;
+      line-height: 1.7;
+      color: rgba(245,240,234,0.5);
+      font-weight: 300;
     }
 
-    .footlinks { display:flex; flex-wrap:wrap; gap: 10px; justify-content:center; margin-top: 10px; }
-    .footlinks a { color: white; text-decoration:none; padding: 8px 10px; border-radius: 12px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); }
-    .footlinks a:hover { background: rgba(255,255,255,0.16); }
+    .project-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      align-items: center;
+      padding: 56px 72px;
+      border-bottom: 1px solid rgba(245,240,234,0.08);
+      gap: 48px;
+      transition: background 0.4s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .floating-shapes { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
-    .shape { position:absolute; border-radius:50%; background: rgba(255,255,255,0.10); animation: float 6s ease-in-out infinite; }
-    .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
-    .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 10%; animation-delay: 2s; }
-    .shape:nth-child(3) { width: 60px; height: 60px; bottom: 20%; left: 20%; animation-delay: 4s; }
+    .project-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transition: transform 0.4s ease;
+      transform-origin: bottom;
+    }
 
-    @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-    @keyframes fadeInDown { from { opacity:0; transform: translateY(-30px);} to { opacity:1; transform: translateY(0);} }
-    @keyframes fadeInUp { from { opacity:0; transform: translateY(26px);} to { opacity:1; transform: translateY(0);} }
-    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-    @keyframes float { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-20px);} }
+    .project-row:hover::before { transform: scaleY(1); }
+    .project-row:hover { background: rgba(245,240,234,0.03); }
 
-    @media (max-width: 880px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-art { order: -1; }
+    .proj-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(245,240,234,0.08);
+      line-height: 1;
+    }
+
+    .proj-main { flex: 1; }
+
+    .proj-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .proj-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 14px;
+    }
+
+    .proj-icon-big {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .proj-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(245,240,234,0.5);
+      font-weight: 300;
+    }
+
+    .proj-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+
+    .proj-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      border: 1px solid rgba(245,240,234,0.12);
+      color: rgba(245,240,234,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.25s;
+      border-radius: 2px;
+    }
+
+    .proj-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(200,169,110,0.05);
+    }
+
+    .proj-link-arrow {
+      opacity: 0.4;
+      font-size: 1rem;
+      transition: transform 0.25s;
+    }
+
+    .proj-link:hover .proj-link-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .proj-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(245,240,234,0.12);
+      margin-bottom: 14px;
+    }
+
+    /* ─── LINKS SECTION ─── */
+    .all-links {
+      background: var(--cream);
+      color: var(--text);
+      padding: 100px 72px;
+    }
+
+    .all-links .section-label { color: var(--rust); }
+    .all-links .section-label::before { background: var(--rust); }
+
+    .all-links-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 56px;
+    }
+
+    .links-masonry {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .link-tile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 24px;
+      background: white;
+      text-decoration: none;
+      color: var(--text);
+      min-height: 130px;
+      transition: all 0.3s;
+      border-bottom: 3px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .link-tile:hover::before { transform: translateY(0); }
+
+    .link-tile > * { position: relative; z-index: 1; }
+
+    .link-tile:hover { color: var(--paper); }
+
+    .link-tile-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .link-tile-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .link-tile-hint {
+      font-size: 0.78rem;
+      color: var(--mist);
+      margin-top: 4px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .link-tile:hover .link-tile-hint { color: rgba(245,240,234,0.5); }
+
+    .link-tile-arrow {
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.3s;
+      align-self: flex-end;
+    }
+
+    .link-tile:hover .link-tile-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── SUPPORT ─── */
+    .support {
+      background: var(--forest);
+      padding: 100px 72px;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .support-img-wrap {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      position: relative;
+    }
+
+    .support-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 1px solid rgba(245,240,234,0.25);
+      border-radius: 50%;
+    }
+
+    .support-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .support-content { flex: 1; }
+
+    .support-content .section-label { color: var(--gold-light); }
+    .support-content .section-label::before { background: var(--gold-light); }
+
+    .support-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .support-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(245,240,234,0.65);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .btn-forest {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 32px;
+      background: var(--paper);
+      color: var(--forest);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: 1px solid var(--paper);
+    }
+
+    .btn-forest:hover {
+      background: transparent;
+      color: var(--paper);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(245,240,234,0.06);
+      padding: 56px 72px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(245,240,234,0.1);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-thanks {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,234,0.4);
+      margin-top: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(245,240,234,0.4);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-links span {
+      color: rgba(245,240,234,0.12);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatGif {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-16px) rotate(1deg); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .links-masonry { grid-template-columns: repeat(2, 1fr); }
+      .project-row { grid-template-columns: 50px 1fr; }
+      .proj-links { display: none; }
+    }
+
+    @media (max-width: 860px) {
+      nav { padding: 18px 24px; }
+      .nav-links { gap: 16px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { order: -1; padding: 120px 32px 40px; }
       .hero-gif { width: 200px; height: 200px; }
-      .hero-title { font-size: 2.6rem; }
-      .topbar { position: static; margin: 0 -20px 16px; }
-      .drop { left: 0; right: auto; }
+      .hero-left { padding: 40px 32px 80px; }
+      .hero-divider { display: none; }
+      .hero-scroll { left: 32px; }
+
+      .about { grid-template-columns: 1fr; }
+      .about-left { padding: 72px 32px; border-right: none; border-bottom: 1px solid rgba(26,26,31,0.1); }
+      .about-right { padding: 60px 32px; }
+
+      .projects-header { padding: 72px 32px 40px; flex-direction: column; align-items: flex-start; }
+      .project-row { padding: 40px 32px; grid-template-columns: 40px 1fr; gap: 24px; }
+
+      .all-links { padding: 72px 32px; }
+      .links-masonry { grid-template-columns: repeat(2, 1fr); }
+
+      .support { padding: 72px 32px; flex-direction: column; gap: 40px; }
+
+      footer { padding: 40px 32px; }
+      .footer-brand { font-size: 1.8rem; }
     }
 
-    @media (max-width: 768px) {
-      .container { padding: 15px; }
-      .card { padding: 24px; }
-      .avatar-section { flex-direction: column; text-align: center; }
-      .intro-text { text-align: center; }
+    @media (max-width: 480px) {
+      .links-masonry { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 4.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="floating-shapes">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
 
-  <div class="container">
-    <div class="topbar">
-      <div class="navwrap">
-        <a class="brand" href="#top">
-          <span class="brand-badge">i</span>
-          <span>izaivi</span>
-        </a>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#top">izaivi</a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener" class="nav-cta">Discord Juegos</a>
+    </div>
+  </nav>
 
-        <nav class="nav">
-          <details class="navdrop">
-            <summary>Fortnite</summary>
-            <div class="drop">
-              <a href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Discord <span class="hint">Comunidad</span></a>
-              <a href="https://youtube.com/@izaivigamermom" target="_blank" rel="noopener">YouTube <span class="hint">Videos</span></a>
-              <a href="https://www.tiktok.com/@izaivigamermom" target="_blank" rel="noopener">TikTok <span class="hint">Clips</span></a>
-              <a href="https://www.twitch.tv/izaivi" target="_blank" rel="noopener">Twitch <span class="hint">Directos</span></a>
-              <a href="https://www.fortnite.com/@izaivi?lang=es-MX" target="_blank" rel="noopener">Epic <span class="hint">Mapas</span></a>
-            </div>
-          </details>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg-image"></div>
+    <div class="hero-divider"></div>
 
-          <details class="navdrop">
-            <summary>Libros</summary>
-            <div class="drop">
-              <a href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Shashin Vivi <span class="hint">Canal</span></a>
-              <a href="https://www.youtube.com/@ShashinVivi/posts" target="_blank" rel="noopener">Publicaciones <span class="hint">Posts</span></a>
-              <a href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">Regalame una infusion <span class="hint">Apoyo</span></a>
-            </div>
-          </details>
-
-          <a class="navlink" href="https://chatgpt.com/g/g-682b99cbf7608191b12d678d807118b7-amanatura" target="_blank" rel="noopener">AmaNatura</a>
-          <a class="navlink" href="https://www.instagram.com/shashin.vivi" target="_blank" rel="noopener">Instagram</a>
-        </nav>
+    <div class="hero-left">
+      <p class="hero-eyebrow">Creadora de universos</p>
+      <h1 class="hero-title">iza<em>ivi</em></h1>
+      <p class="hero-desc">Mapas, historias y mundos compartidos. GamerMom en Fortnite, narradora en Shashin Vivi y espacio de calma en AmaNatura.</p>
+      <div class="hero-actions">
+        <a class="btn-gold" href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Discord Juegos</a>
+        <a class="btn-outline" href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Ver Shashin Vivi</a>
       </div>
     </div>
 
-    <a id="top"></a>
-
-    <header>
-      <div class="hero">
-        <div>
-          <h1 class="hero-title">izaivi</h1>
-          <p class="subtitle">Creadora de mapas, historias y universos compartidos</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Discord Juegos</a>
-            <a class="btn btn-ghost" href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Ver Shashin Vivi</a>
-          </div>
-        </div>
-
-        <div class="hero-art">
-          <img class="hero-gif" src="images/izaivi.gif" alt="izaivi" />
-        </div>
+    <div class="hero-right">
+      <div class="hero-gif-wrap">
+        <img class="hero-gif" src="images/izaivi.gif" alt="izaivi" />
       </div>
-    </header>
+    </div>
 
-    <section class="card avatar-section">
-      <img src="918B305C-055B-4D24-8C9B-0577C29FD1BF.PNG" alt="Avatar izaivi" class="avatar-img">
-      <div class="avatar-content">
-        <h2 style="margin-bottom: 12px; color: #333;">Sobre mi</h2>
-        <p class="intro-text">
-          Hola, soy <strong>izaivi</strong>. Creadora multifacetica, mama gamer, narradora de historias que pocos se atreven a explorar y exploradora de mundos, ya sean digitales o invisibles.
-        </p>
-      </div>
-    </section>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      Explorar
+    </div>
+  </section>
 
-    <section class="card closing-card">
-      <p class="closing-text">
-        "Aunque estos proyectos parezcan distintos, todos nacen del mismo lugar:<br>
-        mi deseo de crear mundos con sentido, de compartir lo que me inspira,<br>
-        y de seguir explorando con alegria, con preguntas, con amor."
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="about-left">
+      <p class="section-label">Sobre mí</p>
+      <h2 class="about-heading">Creadora multifacética, <em>mamá gamer</em></h2>
+      <p class="about-body">
+        Hola, soy <strong>izaivi</strong>. Narradora de historias que pocos se atreven a explorar y exploradora de mundos — ya sean digitales o invisibles.<br><br>
+        Aunque mis proyectos parezcan distintos, todos nacen del mismo lugar: mi deseo de crear mundos con sentido, de compartir lo que me inspira, y de seguir explorando con alegría, con preguntas, con amor.
       </p>
-    </section>
-
-    <section class="projects-grid">
-      <article class="project-card">
-        <div class="project-icon">🎮</div>
-        <h2 class="project-title">GamerMom</h2>
-        <p class="project-description">
-          En GamerMom me sumerjo en Fortnite creando experiencias, jugando en comunidad y cuidando ese lado lúdico que nunca quiero perder. Trabajo con un pequeño equipo de gran corazón: un creativo que transforma las ideas en mapas y mods increíbles que sostienen nuestra comunidad.       
-        </p>
-        <div class="mini-row">
-          <img class="mini-avatar" src="images/izaivigamermombanner.jpeg" alt="GamerMom" />
-          <div class="mini-text">Fortnite y comunidad</div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-icon">📚</div>
-        <h2 class="project-title">Shashin Vivi</h2>
-        <p class="project-description">
-          En Shashin Vivi me adentro en historias no convencionales, libros que remueven y teorias que invitan a pensar distinto.
-        </p>
-        <div class="mini-row">
-          <img class="mini-avatar" src="images/Aeva.png" alt="Aeva" />
-          <img class="mini-avatar" src="images/logo_shashinlibros.png" alt="Shashin Vivi" />
-          <div class="mini-text">Con la ayuda de <strong>Aeva</strong>, nuestro avatar para meditaciones y narraciones.</div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-icon">🌿</div>
-        <h2 class="project-title">AmaNatura</h2>
-        <p class="project-description">
-          Bienestar, naturopatia, ayuno consciente, belleza natural y movimiento suave. Un espacio para volver al cuerpo y a la calma.
-        </p>
-        <div class="mini-row">
-          <img class="mini-avatar" src="images/amanatura.png" alt="AmaNatura" />
-          <div class="mini-text">Bienestar y calma</div>
-        </div>
-      </article>
-    </section>
-
-    <section class="links-grid" aria-label="Links">
-      <a href="https://www.fortnite.com/@izaivi?lang=es-MX" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">🗺️</span><span class="link-title">Mapas en Fortnite</span></span>
-        <span class="hint">Epic</span>
-      </a>
-      <a href="https://discord.gg/PgdvwMnh3r" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">💬</span><span class="link-title">Discord Juegos</span></span>
-        <span class="hint">Comunidad</span>
-      </a>
-      <a href="https://youtube.com/@izaivigamermom" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">🎙️</span><span class="link-title">YouTube GamerMom</span></span>
-        <span class="hint">Fortnite</span>
-      </a>
-      <a href="https://www.tiktok.com/@izaivigamermom" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">🎬</span><span class="link-title">TikTok</span></span>
-        <span class="hint">Clips</span>
-      </a>
-      <a href="https://www.twitch.tv/izaivi" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">📺</span><span class="link-title">Twitch</span></span>
-        <span class="hint">Directos</span>
-      </a>
-      <a href="https://www.youtube.com/@ShashinVivi" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">📚</span><span class="link-title">YouTube Libros</span></span>
-        <span class="hint">Shashin Vivi</span>
-      </a>
-      <a href="https://www.youtube.com/@ShashinVivi/posts" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">📝</span><span class="link-title">Publicaciones</span></span>
-        <span class="hint">Posts</span>
-      </a>
-      <a href="https://chatgpt.com/g/g-682b99cbf7608191b12d678d807118b7-amanatura" class="project-link" target="_blank" rel="noopener">
-        <span class="link-left"><span class="link-icon">🌙</span><span class="link-title">AmaNatura</span></span>
-        <span class="hint">Bienestar</span>
-      </a>
-    </section>
-
-    <section class="support-section">
-      <img src="849FEEE1-7D9C-49E1-B04B-A3AD8657954C.PNG" alt="Gatito con te" class="support-img">
-      <p><strong>Te gusta lo que creo</strong></p>
-      <p>Si alguna historia, mapa o video te regalo una sonrisa o un momento de calma, puedes apoyarme con una pequena infusion.</p>
-      <a href="https://www.buymeacoffee.com/izaivi" class="support-link" target="_blank" rel="noopener">Regalame una infusion</a>
-    </section>
-
-    <footer>
-      <div>Gracias por pasar por aqui</div>
-      <div class="footlinks">
-        <a href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Discord Juegos</a>
-        <a href="https://youtube.com/@izaivigamermom" target="_blank" rel="noopener">YouTube Fortnite</a>
-        <a href="https://www.tiktok.com/@izaivigamermom" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://www.twitch.tv/izaivi" target="_blank" rel="noopener">Twitch</a>
-        <a href="https://www.fortnite.com/@izaivi?lang=es-MX" target="_blank" rel="noopener">Epic</a>
-        <a href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Shashin Vivi</a>
-        <a href="https://www.youtube.com/@ShashinVivi/posts" target="_blank" rel="noopener">Publicaciones</a>
-        <a href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">Infusion</a>
-        <a href="https://www.instagram.com/shashin.vivi" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="about-right">
+      <div class="avatar-ring">
+        <img src="918B305C-055B-4D24-8C9B-0577C29FD1BF.PNG" alt="izaivi" class="avatar-img" />
       </div>
-    </footer>
+      <p class="quote-block">
+        "Seguir explorando con alegría, con preguntas, con amor."
+        <span></span>
+      </p>
+    </div>
+  </section>
 
-    <script>
-      /* nav-close */
-      (function() {
-        const drops = Array.from(document.querySelectorAll('details.navdrop'));
-        function closeAll(except) {
-          drops.forEach(d => { if (d !== except) d.removeAttribute('open'); });
-        }
-        drops.forEach(d => {
-          d.addEventListener('toggle', () => { if (d.open) closeAll(d); });
-        });
-        document.addEventListener('click', (e) => {
-          const clickedInside = drops.some(d => d.contains(e.target));
-          if (!clickedInside) closeAll();
-        });
-        window.addEventListener('scroll', () => closeAll(), { passive: true });
-      })();
-    </script>
-  </div>
+  <!-- PROJECTS -->
+  <section class="projects" id="proyectos">
+    <div class="projects-header">
+      <div>
+        <p class="section-label">Mis universos</p>
+        <h2 class="projects-heading">Tres mundos,<br>una creadora</h2>
+      </div>
+      <p class="projects-sub">Cada proyecto es una ventana a un universo distinto, pero todos comparten el mismo corazón.</p>
+    </div>
+
+    <!-- GAMERMOM -->
+    <div class="project-row">
+      <div class="proj-num">01</div>
+      <div class="proj-main">
+        <p class="proj-tag">Gaming · Comunidad</p>
+        <div class="proj-icon-big">🎮</div>
+        <h3 class="proj-title">GamerMom</h3>
+        <img class="proj-thumb" src="images/izaivigamermombanner.jpeg" alt="GamerMom">
+        <p class="proj-desc">En GamerMom me sumerjo en Fortnite creando experiencias, jugando en comunidad y cuidando ese lado lúdico que nunca quiero perder. Trabajo con un pequeño equipo de gran corazón que transforma ideas en mapas y mods increíbles.</p>
+      </div>
+      <div class="proj-links">
+        <a class="proj-link" href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener"><span>Discord</span><span class="proj-link-arrow">→</span></a>
+        <a class="proj-link" href="https://youtube.com/@izaivigamermom" target="_blank" rel="noopener"><span>YouTube</span><span class="proj-link-arrow">→</span></a>
+        <a class="proj-link" href="https://www.tiktok.com/@izaivigamermom" target="_blank" rel="noopener"><span>TikTok</span><span class="proj-link-arrow">→</span></a>
+        <a class="proj-link" href="https://www.twitch.tv/izaivi" target="_blank" rel="noopener"><span>Twitch</span><span class="proj-link-arrow">→</span></a>
+        <a class="proj-link" href="https://www.fortnite.com/@izaivi?lang=es-MX" target="_blank" rel="noopener"><span>Mapas en Epic</span><span class="proj-link-arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- SHASHIN VIVI -->
+    <div class="project-row">
+      <div class="proj-num">02</div>
+      <div class="proj-main">
+        <p class="proj-tag">Libros · Narrativa</p>
+        <div class="proj-icon-big">📚</div>
+        <h3 class="proj-title">Shashin Vivi</h3>
+        <div style="display:flex;gap:10px;margin-bottom:14px;">
+          <img class="proj-thumb" src="images/Aeva.png" alt="Aeva" style="margin-bottom:0;">
+          <img class="proj-thumb" src="images/logo_shashinlibros.png" alt="Shashin Vivi" style="margin-bottom:0;">
+        </div>
+        <p class="proj-desc">Historias no convencionales, libros que remueven y teorías que invitan a pensar distinto. Con la ayuda de <strong style="color:var(--gold-light)">Aeva</strong>, nuestro avatar para meditaciones y narraciones.</p>
+      </div>
+      <div class="proj-links">
+        <a class="proj-link" href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener"><span>Canal YouTube</span><span class="proj-link-arrow">→</span></a>
+        <a class="proj-link" href="https://www.youtube.com/@ShashinVivi/posts" target="_blank" rel="noopener"><span>Publicaciones</span><span class="proj-link-arrow">→</span></a>
+        <a class="proj-link" href="https://www.instagram.com/shashin.vivi" target="_blank" rel="noopener"><span>Instagram</span><span class="proj-link-arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- AMANATURA -->
+    <div class="project-row">
+      <div class="proj-num">03</div>
+      <div class="proj-main">
+        <p class="proj-tag">Bienestar · Natura</p>
+        <div class="proj-icon-big">🌿</div>
+        <h3 class="proj-title">AmaNatura</h3>
+        <img class="proj-thumb" src="images/amanatura.png" alt="AmaNatura">
+        <p class="proj-desc">Bienestar, naturopatía, ayuno consciente, belleza natural y movimiento suave. Un espacio para volver al cuerpo y a la calma.</p>
+      </div>
+      <div class="proj-links">
+        <a class="proj-link" href="https://chatgpt.com/g/g-682b99cbf7608191b12d678d807118b7-amanatura" target="_blank" rel="noopener"><span>AmaNatura GPT</span><span class="proj-link-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL LINKS -->
+  <section class="all-links" id="links">
+    <p class="section-label">Todos mis espacios</p>
+    <h2 class="all-links-heading">Encuéntrame aquí</h2>
+    <div class="links-masonry">
+      <a href="https://www.fortnite.com/@izaivi?lang=es-MX" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">🗺️</span><span class="link-tile-name">Mapas en Fortnite</span><p class="link-tile-hint">Epic Games</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://discord.gg/PgdvwMnh3r" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">💬</span><span class="link-tile-name">Discord Juegos</span><p class="link-tile-hint">Comunidad</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://youtube.com/@izaivigamermom" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">🎙️</span><span class="link-tile-name">YouTube GamerMom</span><p class="link-tile-hint">Fortnite</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://www.tiktok.com/@izaivigamermom" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">🎬</span><span class="link-tile-name">TikTok</span><p class="link-tile-hint">Clips</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://www.twitch.tv/izaivi" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">📺</span><span class="link-tile-name">Twitch</span><p class="link-tile-hint">Directos</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://www.youtube.com/@ShashinVivi" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">📚</span><span class="link-tile-name">YouTube Libros</span><p class="link-tile-hint">Shashin Vivi</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://www.instagram.com/shashin.vivi" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">📸</span><span class="link-tile-name">Instagram</span><p class="link-tile-hint">Shashin Vivi</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+      <a href="https://chatgpt.com/g/g-682b99cbf7608191b12d678d807118b7-amanatura" class="link-tile" target="_blank" rel="noopener">
+        <div><span class="link-tile-icon">🌙</span><span class="link-tile-name">AmaNatura</span><p class="link-tile-hint">Bienestar</p></div>
+        <span class="link-tile-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section class="support">
+    <div class="support-img-wrap">
+      <img class="support-img" src="849FEEE1-7D9C-49E1-B04B-A3AD8657954C.PNG" alt="Gatito con té" />
+    </div>
+    <div class="support-content">
+      <p class="section-label">Apóyame</p>
+      <h2 class="support-heading">¿Te regalé una sonrisa<br>o un momento de calma?</h2>
+      <p class="support-body">Si alguna historia, mapa o video tocó algo en ti, puedes apoyarme con una pequeña infusión. Cada sorbo cuenta.</p>
+      <a class="btn-forest" href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">
+        ☕ Regálame una infusión
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-brand">izaivi</div>
+      <p class="footer-thanks">Gracias por pasar por aquí</p>
+    </div>
+    <nav class="footer-links">
+      <a href="https://discord.gg/PgdvwMnh3r" target="_blank" rel="noopener">Discord Juegos</a>
+      <span>·</span>
+      <a href="https://youtube.com/@izaivigamermom" target="_blank" rel="noopener">YouTube</a>
+      <span>·</span>
+      <a href="https://www.tiktok.com/@izaivigamermom" target="_blank" rel="noopener">TikTok</a>
+      <span>·</span>
+      <a href="https://www.twitch.tv/izaivi" target="_blank" rel="noopener">Twitch</a>
+      <span>·</span>
+      <a href="https://www.fortnite.com/@izaivi?lang=es-MX" target="_blank" rel="noopener">Epic</a>
+      <span>·</span>
+      <a href="https://www.youtube.com/@ShashinVivi" target="_blank" rel="noopener">Shashin Vivi</a>
+      <span>·</span>
+      <a href="https://www.instagram.com/shashin.vivi" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <a href="https://www.buymeacoffee.com/izaivi" target="_blank" rel="noopener">Infusión</a>
+    </nav>
+  </footer>
+
 </body>
 </html>
