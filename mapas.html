@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapas de Fortnite · izaivi</title>
+<meta name="description" content="Galería de mapas de Fortnite creados por izaivi: Prop Hunt Chapultepec, Tokyo War Zones, Capture the Flag y más." />
+<link rel="canonical" href="https://www.izaivigamermom.com/mapas.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mapas de Fortnite · izaivi" />
+<meta property="og:description" content="Mapas creados por izaivi en Fortnite. Códigos, fotos y descripciones." />
+<meta property="og:url" content="https://www.izaivigamermom.com/mapas.html" />
+<meta property="og:image" content="https://www.izaivigamermom.com/images/og.png" />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0f;--paper:#f5f0ea;--cream:#ede8e1;--gold:#c8a96e;--gold-light:#e8d5a8;--rust:#a8522a;--forest:#2d4a35;--text:#1a1a1f;--text-light:#6b6b75;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--paper);overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:0.04;pointer-events:none;z-index:9999;}
+nav{position:sticky;top:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,13,15,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(245,240,234,0.06);}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:0.05em;}
+.nav-back{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,234,0.6);text-decoration:none;transition:color 0.3s;display:inline-flex;align-items:center;gap:8px;}
+.nav-back:hover{color:var(--gold);}
+.maps-hero{padding:120px 72px 60px;text-align:center;border-bottom:1px solid rgba(245,240,234,0.08);}
+.eyebrow{font-size:0.75rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:inline-flex;align-items:center;gap:14px;}
+.eyebrow::before,.eyebrow::after{content:'';width:30px;height:1px;background:var(--gold);}
+.maps-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5rem);font-weight:900;line-height:0.95;letter-spacing:-0.02em;color:var(--paper);margin-bottom:24px;}
+.maps-title em{font-style:italic;color:var(--gold);}
+.maps-sub{font-size:1.05rem;line-height:1.8;color:rgba(245,240,234,0.6);max-width:620px;margin:0 auto;font-weight:300;}
+.maps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(245,240,234,0.08);padding:2px;}
+.map-card{background:var(--ink);display:flex;flex-direction:column;overflow:hidden;position:relative;transition:background 0.4s;}
+.map-card:hover{background:#14141a;}
+.map-img-wrap{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a22;}
+.map-img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;}
+.map-card:hover .map-img{transform:scale(1.04);}
+.map-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,15,0.6) 0%,transparent 50%);pointer-events:none;}
+.map-num{position:absolute;top:16px;left:20px;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold);letter-spacing:0.15em;z-index:2;background:rgba(13,13,15,0.7);padding:6px 12px;border:1px solid rgba(200,169,110,0.4);}
+.map-body{padding:32px 36px 36px;display:flex;flex-direction:column;gap:18px;flex:1;}
+.map-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.map-tag{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,169,110,0.3);padding:4px 10px;font-weight:500;}
+.map-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--paper);line-height:1.15;}
+.map-desc{font-size:0.95rem;line-height:1.7;color:rgba(245,240,234,0.6);font-weight:300;}
+.map-code-row{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:18px;border-top:1px solid rgba(245,240,234,0.08);}
+.map-code-label{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,234,0.4);}
+.map-code{font-family:'DM Sans',monospace;font-size:1.05rem;font-weight:700;color:var(--gold);letter-spacing:0.05em;cursor:pointer;user-select:all;background:rgba(200,169,110,0.08);padding:6px 12px;border:1px dashed rgba(200,169,110,0.4);transition:all 0.25s;}
+.map-code:hover{background:rgba(200,169,110,0.18);border-style:solid;}
+.map-actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;}
+.map-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;text-decoration:none;transition:all 0.25s;border:1px solid var(--gold);}
+.map-btn-primary{background:var(--gold);color:var(--ink);}
+.map-btn-primary:hover{background:transparent;color:var(--gold);}
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--gold);color:var(--ink);padding:14px 26px;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;z-index:1000;transition:transform 0.4s cubic-bezier(0.76,0,0.24,1);box-shadow:0 10px 40px rgba(0,0,0,0.4);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+.cta{background:var(--cream);color:var(--text);padding:90px 72px;text-align:center;}
+.cta-heading{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;margin-bottom:16px;color:var(--text);}
+.cta-heading em{color:var(--rust);font-style:italic;}
+.cta-sub{font-size:1rem;line-height:1.7;color:var(--text-light);max-width:480px;margin:0 auto 32px;font-weight:300;}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:var(--ink);color:var(--gold);text-decoration:none;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--ink);transition:all 0.3s;}
+.btn-gold:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+footer{background:var(--ink);border-top:1px solid rgba(245,240,234,0.06);padding:50px 72px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:rgba(245,240,234,0.15);}
+.footer-text{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,240,234,0.4);}
+.footer-text a{color:var(--gold);text-decoration:none;}
+@media (max-width:980px){.maps-grid{grid-template-columns:1fr;}.maps-hero{padding:90px 28px 48px;}nav{padding:16px 24px;}.map-body{padding:28px;}.cta{padding:70px 28px;}footer{padding:36px 28px;}}
+</style>
+</head>
+<body>
+<nav>
+<a class="nav-brand" href="index.html">izaivi</a>
+<a class="nav-back" href="index.html">← Volver al inicio</a>
+</nav>
+<header class="maps-hero">
+<p class="eyebrow">Mapas de Fortnite</p>
+<h1 class="maps-title">Mis <em>universos</em> jugables</h1>
+<p class="maps-sub">Mapas creados con cariño por izaivi y su pequeño equipo. Copia el código, búscalo en Fortnite y disfruta. ¡Cada mapa es una invitación a jugar!</p>
+</header>
+<section class="maps-grid">
+<article class="map-card">
+<div class="map-img-wrap">
+<span class="map-num">01</span>
+<img class="map-img" src="https://cdn-0001.qstv.on.epicgames.com/uJWCJUBddyAvUKAeBW/image/landscape_comp_s.jpeg" alt="Prop Hunt Chapultepec" loading="lazy">
+</div>
+<div class="map-body">
+<div class="map-tags">
+<span class="map-tag">Prop Hunt</span>
+<span class="map-tag">Casual</span>
+<span class="map-tag">Funny</span>
+</div>
+<h2 class="map-name">Prop Hunt Chapultepec</h2>
+<p class="map-desc">¡Sumérgete en la nostalgia y la diversión con este mapa inspirado en la Feria de Chapultepec! Juega con hasta 16 jugadores mientras te escondes entre las atracciones icónicas como el carrusel, la rueda de la fortuna, las tiendas de feria y mucho más. ¿Serás un maestro del escondite o un buscador implacable? 🌳🎯</p>
+<div class="map-actions">
+<a class="map-btn map-btn-primary" href="https://www.fortnite.com/creative/island-codes/2437-9494-5381?lang=es-MX" target="_blank" rel="noopener">Ver en Epic →</a>
+</div>
+<div class="map-code-row">
+<span class="map-code-label">Código</span>
+<span class="map-code" data-code="2437-9494-5381">2437-9494-5381</span>
+</div>
+</div>
+</article>
+<article class="map-card">
+<div class="map-img-wrap">
+<span class="map-num">02</span>
+<img class="map-img" src="https://cdn-0001.qstv.on.epicgames.com/SyKaYCxccwPnDPBKBJ/image/landscape_comp_s.jpeg" alt="Chill with friends, relax villa." loading="lazy">
+</div>
+<div class="map-body">
+<div class="map-tags">
+<span class="map-tag">Friendly</span>
+<span class="map-tag">Party Game</span>
+<span class="map-tag">Casual</span>
+</div>
+<h2 class="map-name">Chill with friends, relax villa</h2>
+<p class="map-desc">Un espacio ideal para pasarla bien sin PvP. Recorre el circuito, prueba la pista de obstáculos estilo party game, disfruta el escenario con tus amigos y juega modos clásicos como Simón Dice o Escondidas. ¡Un mapa chill para explorar, reír y compartir!</p>
+<div class="map-actions">
+<a class="map-btn map-btn-primary" href="https://www.fortnite.com/creative/island-codes/6674-9996-2680?lang=es-MX" target="_blank" rel="noopener">Ver en Epic →</a>
+</div>
+<div class="map-code-row">
+<span class="map-code-label">Código</span>
+<span class="map-code" data-code="6674-9996-2680">6674-9996-2680</span>
+</div>
+</div>
+</article>
+<article class="map-card">
+<div class="map-img-wrap">
+<span class="map-num">03</span>
+<img class="map-img" src="https://cdn-0001.qstv.on.epicgames.com/fXCktiQGNaACfnPapz/image/landscape_comp_s.jpeg" alt="Master Capture the Flag" loading="lazy">
+</div>
+<div class="map-body">
+<div class="map-tags">
+<span class="map-tag">Capture the Flag</span>
+<span class="map-tag">Teams</span>
+<span class="map-tag">Strategy</span>
+</div>
+<h2 class="map-name">Master Capture the Flag</h2>
+<p class="map-desc">Un emocionante mapa de Captura la Bandera donde dos equipos se enfrentan. Inspirado en la acción clásica de Halo, este desafío de 5 rondas pondrá a prueba tu habilidad y trabajo en equipo. ¿Podrás llevar a tu equipo a la victoria? ¡Prepárate para la acción!</p>
+<div class="map-actions">
+<a class="map-btn map-btn-primary" href="https://www.fortnite.com/creative/island-codes/1584-5359-2031?lang=es-MX" target="_blank" rel="noopener">Ver en Epic →</a>
+</div>
+<div class="map-code-row">
+<span class="map-code-label">Código</span>
+<span class="map-code" data-code="1584-5359-2031">1584-5359-2031</span>
+</div>
+</div>
+</article>
+<article class="map-card">
+<div class="map-img-wrap">
+<span class="map-num">04</span>
+<img class="map-img" src="https://cdn-0001.qstv.on.epicgames.com/xPDrDuVIZJBlGaRJij/image/landscape_comp_s.jpeg" alt="Estudios Nayhard" loading="lazy">
+</div>
+<div class="map-body">
+<div class="map-tags">
+<span class="map-tag">Friendly</span>
+<span class="map-tag">Creative</span>
+<span class="map-tag">Studio</span>
+</div>
+<h2 class="map-name">Estudios Ñayhard</h2>
+<p class="map-desc">Empezamos con el mítico set de "Around the World" (MTV 1997, Daft Punk) y un escenario abierto para crear tus propias historias. Este mapa será nuestro estudio vivo: un espacio en expansión donde todos pueden actuar, grabar y divertirse. ¡Bienvenido a Estudios Ñayhard!</p>
+<div class="map-actions">
+<a class="map-btn map-btn-primary" href="https://www.fortnite.com/creative/island-codes/7354-1125-5997?lang=es-MX" target="_blank" rel="noopener">Ver en Epic →</a>
+</div>
+<div class="map-code-row">
+<span class="map-code-label">Código</span>
+<span class="map-code" data-code="7354-1125-5997">7354-1125-5997</span>
+</div>
+</div>
+</article>
+<article class="map-card">
+<div class="map-img-wrap">
+<span class="map-num">05</span>
+<img class="map-img" src="https://cdn-0001.qstv.on.epicgames.com/yyLrjSMmgkbgIspzCR/image/landscape_comp_s.jpeg" alt="Sword and Hammer PVP Challenge" loading="lazy">
+</div>
+<div class="map-body">
+<div class="map-tags">
+<span class="map-tag">Arena</span>
+<span class="map-tag">Building</span>
+<span class="map-tag">Melee</span>
+<span class="map-tag">PvP</span>
+</div>
+<h2 class="map-name">Sword and Hammer PVP Challenge</h2>
+<p class="map-desc">¡Bienvenido al Sword and Hammer PVP Challenge! Un mapa diseñado para entrenar tus habilidades de construcción y combate cuerpo a cuerpo. Pelea con espadas, martillos y bates de béisbol en un campo abierto, ideal para enfrentamientos rápidos y épicos. Hasta 16 jugadores en modo PvP. ¿Aceptas el reto?</p>
+<div class="map-actions">
+<a class="map-btn map-btn-primary" href="https://www.fortnite.com/creative/island-codes/7342-0871-5851?lang=es-MX" target="_blank" rel="noopener">Ver en Epic →</a>
+</div>
+<div class="map-code-row">
+<span class="map-code-label">Código</span>
+<span class="map-code" data-code="7342-0871-5851">7342-0871-5851</span>
+</div>
+</div>
+</article>
+<article class="map-card">
+<div class="map-img-wrap">
+<span class="map-num">06</span>
+<img class="map-img" src="https://cdn-0001.qstv.on.epicgames.com/qyebJmcvvOWgmeEqEx/image/landscape_comp_s.jpeg" alt="Tokyo War Zones ACTUALIZADO" loading="lazy">
+</div>
+<div class="map-body">
+<div class="map-tags">
+<span class="map-tag">PvP</span>
+<span class="map-tag">Zone Wars</span>
+<span class="map-tag">Building</span>
+<span class="map-tag">Battle Royale</span>
+</div>
+<h2 class="map-name">Tokyo War Zones <span style="color:var(--gold);font-size:0.7em;">· ACTUALIZADO</span></h2>
+<p class="map-desc">¡Bienvenido a Tokyo Zone Wars! Sumérgete en un PvP frenético con 50 jugadores. Pelea en la Tokyo Tower, el Ramen House y los Dojos, mientras usas loot de distintas temporadas. Con reapariciones infinitas, logra llegar a las 20 eliminaciones y sé el ganador de la ronda. ¿Tienes lo necesario para dominar este mundo de Sakuras y combate sin fin?</p>
+<div class="map-actions">
+<a class="map-btn map-btn-primary" href="https://www.fortnite.com/creative/island-codes/3613-3224-0615?lang=es-MX" target="_blank" rel="noopener">Ver en Epic →</a>
+</div>
+<div class="map-code-row">
+<span class="map-code-label">Código</span>
+<span class="map-code" data-code="3613-3224-0615">3613-3224-0615</span>
+</div>
+</div>
+</article>
+</section>
+<section class="cta">
+<h2 class="cta-heading">¿Quieres ver <em>todos</em> mis mapas?</h2>
+<p class="cta-sub">Visita mi perfil oficial en Epic Games para descubrir nuevos mapas, seguirme y estar al día de todo lo que estoy creando.</p>
+<a class="btn-gold" href="https://www.fortnite.com/@izaivi?lang=es-MX" target="_blank" rel="noopener">Ver perfil en Epic Games →</a>
+</section>
+<footer>
+<div>
+<div class="footer-brand">izaivi</div>
+<p class="footer-text">Gracias por jugar conmigo</p>
+</div>
+<p class="footer-text"><a href="index.html">← Volver al inicio</a></p>
+</footer>
+<div class="toast" id="toast">Código copiado ✓</div>
+<script>
+document.querySelectorAll('.map-code').forEach(el => {
+  el.addEventListener('click', async () => {
+    const code = el.dataset.code;
+    try {
+      await navigator.clipboard.writeText(code);
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 1800);
+    } catch(e) {}
+  });
+});
+</script>
+</body>
+</html>
